@@ -16,4 +16,4 @@
 
 样式示例
 
-![demo img]()
+![demo img](https://github.com/ihopefulChina/Taro-Calendar-Multiple-choice-checkbox/blob/main/demo.png)
