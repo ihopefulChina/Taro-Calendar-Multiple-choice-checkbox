@@ -1,0 +1,162 @@
+.selectDate {
+  height: 100vh;
+  .content {
+    margin-top: 8px;
+    padding: 17px 0;
+    background: #fff;
+    .nextPreDate {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      .iconPre {
+        //这里开始是公用图标css 文档参考https://www.zhangxinxu.com/sp/icon/css.php
+        display: inline-block;
+        font-size: 10px; //这里是默认值24px
+        color: #777;
+        box-sizing: border-box;
+        text-indent: -9999px;
+        vertical-align: middle;
+        position: relative;
+        height: 1em;
+        width: 1em;
+        //这里结束
+        &:before,
+        &:after {
+          content: "";
+          box-sizing: inherit;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+
+        &:before {
+          height: 0.65em;
+          width: 0.65em;
+          border-style: solid;
+          border-width: 2px 0 0 2px;
+          -ms-transform: translate(-25%, -50%) rotate(-45deg);
+          transform: translate(-25%, -50%) rotate(-45deg);
+        }
+      }
+      .iconNext {
+        //这里开始是公用图标css 文档参考https://www.zhangxinxu.com/sp/icon/css.php
+        display: inline-block;
+        font-size: 10px; //这里是默认值24px
+        color: #777;
+        box-sizing: border-box;
+        text-indent: -9999px;
+        vertical-align: middle;
+        position: relative;
+        height: 1em;
+        width: 1em;
+        //这里结束
+        &:before,
+        &:after {
+          content: "";
+          box-sizing: inherit;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+
+        &:before {
+          height: 0.65em;
+          width: 0.65em;
+          border-style: solid;
+          border-width: 2px 0 0 2px;
+          -ms-transform: translate(-75%, -50%) rotate(135deg);
+          transform: translate(-75%, -50%) rotate(135deg);
+        }
+      }
+      .nowMonDate {
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #333333;
+        padding: 0 55px;
+      }
+    }
+    .calendarContent {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .weekContent {
+        padding: 26px 10px 18px 10px;
+        border-bottom: 1px solid #eeeeee;
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+        text {
+          display: flex;
+          justify-items: center;
+          justify-content: center;
+          align-content: center;
+          flex: 1;
+        }
+      }
+      .daysContent {
+        width: 100%;
+        padding: 0 10px;
+        margin: 8px 0;
+        .days {
+          float: left;
+          width: calc(100% / 7);
+          display: flex;
+          justify-items: center;
+          justify-content: center;
+          align-content: center;
+          text {
+            margin: 6px 0;
+            font-size: 13px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #333333;
+            width: 26px;
+            height: 26px;
+            background: transparent;
+            border-radius: 1px;
+            line-height: 26px;
+            text-align: center;
+            &.noNowDays {
+              color: #cccccc;
+            }
+          }
+          &.activeDays {
+            text {
+              background: #eff8f8;
+              color: #64beba;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottomButton {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 20px;
+    background: #ffffff;
+    box-shadow: 0px 1px 0px 0px #e9e9e9;
+    .buttonContent {
+      background: #010101;
+      border-radius: 2px;
+      font-size: 15px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 22px;
+      padding: 11px 0;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
