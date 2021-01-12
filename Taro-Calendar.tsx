@@ -13,19 +13,31 @@ export default class Index extends Component {
     //当前视图日历
     calendarDays: [] as { title; active; isNowMonth; year; month }[],
     //选中的日期数据
-    selectDays: [] as { year; month; day }[]
+    selectDays: [] as { year; month; day }[],
   };
 
   //组件第一次渲染前
   componentWillMount() {
-    //初始化，默认显示当前月份
-    const date = new Date();
-    let nowMonDate = {
-      year: date.getFullYear(),
-      month: date.getMonth() + 1
-    };
+    let nowMonDate = {};
+    let nowDate = this.props.nowDate;
+    if (nowDate) {
+      //如果props传入了值，
+      nowMonDate = {
+        year: nowDate.year,
+        month: nowDate.month,
+      };
+    } else {
+      //未传入值将默认用当前时间
+      let date = new Date();
+      nowMonDate = {
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+      };
+    }
+    //这样就可以把这个封装未组件了
+
     this.setState({
-      nowMonDate
+      nowMonDate,
     });
     //计算当前视图日历
     this.handleCalendar(nowMonDate);
@@ -126,7 +138,7 @@ export default class Index extends Component {
       }
     }
     this.setState({
-      nowMonDate
+      nowMonDate,
     });
     //计算当前视图日历
     this.handleCalendar(nowMonDate);
@@ -176,7 +188,7 @@ export default class Index extends Component {
         active: false,
         isNowMonth: blo,
         year,
-        month
+        month,
       };
       nowMonDays.push(day);
       i++;
@@ -259,7 +271,7 @@ export default class Index extends Component {
     let calendarDays = [
       ...supplementaryPreDate,
       ...daysArray,
-      ...supplementaryLastDate
+      ...supplementaryLastDate,
     ];
     this.setState({ calendarDays });
   }
@@ -276,7 +288,7 @@ export default class Index extends Component {
       let day = {
         year: calendarDays[index].year,
         month: calendarDays[index].month,
-        day: calendarDays[index].title
+        day: calendarDays[index].title,
       };
       selectDays.push(day);
     } else {
@@ -300,7 +312,7 @@ export default class Index extends Component {
     if (selectDays.length == 0) {
       Taro.showToast({
         title: "请选择日期",
-        icon: "none"
+        icon: "none",
       });
     } else {
       //这里点击确认后值
